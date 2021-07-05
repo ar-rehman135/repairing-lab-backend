@@ -92,6 +92,23 @@ class GalleryImages(models.Model):
 	def __str__(self):
 		return self.title
 
+class LaptopRepairing(models.Model):
+	imageID = models.AutoField(primary_key=True)
+	images = models.ImageField(upload_to='shop/images', default='')
+	order = models.CharField(max_length=100)
+	title = models.CharField(max_length=250)
+	description = models.TextField()
+
+class MobileRepairing(models.Model):
+	imageID = models.AutoField(primary_key=True)
+	images = models.ImageField(upload_to='shop/images', default='')
+	order = models.CharField(max_length=100)
+	title = models.CharField(max_length=250)
+	description = models.TextField()
+
+	def __str__(self):
+		return self.title
+
 class ShopHistory(models.Model):
 	shopdetails = models.OneToOneField(ShopDetails, on_delete=models.CASCADE, primary_key=True)
 	happy_customers = models.CharField(max_length=100)
@@ -137,6 +154,16 @@ class Quote(models.Model):
 	email = models.CharField(max_length=100, unique=True)
 	phoneNO = models.CharField(max_length=50)
 	description = models.TextField(blank=True)
+
+
+class ContactUs(models.Model):
+	contactId = models.AutoField(primary_key=True)
+	fullName = models.CharField(max_length=100)
+	email = models.CharField(max_length=100, unique=True)
+	subject = models.CharField(max_length=100)
+	phoneNO = models.CharField(max_length=50)
+	message = models.TextField(blank=True)
+
 # class HardwareImages(models.Model):
 # 	post = models.ForeignKey(Hardware, default=None, on_delete=models.CASCADE)
 # 	images = models.FileField(upload_to='images/')

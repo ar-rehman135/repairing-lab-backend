@@ -16,6 +16,10 @@ urlpatterns = [
     path('home/', views.home),
     path('chooseUs/',views.chooseUs),
     path('ourServices/',views.ourServices),
-    path('galleryImages/', views.galleryImages)
+    path('galleryImages/', views.galleryImages),
+    path('laptopRepairing/', views.laptopRepairing),
+    path('mobileRepairing/', views.mobileRepairing),
+    path('contactUs/', views.contactUs)
+    #path('', include(router.urls)),
     #path('', include(router.urls)),
 ] + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)

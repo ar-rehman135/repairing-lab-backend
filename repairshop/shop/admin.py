@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Enquiry,GalleryImages,ShopDetails,ShopHistory,ClientReviews,ChooseUs,Staff,Service,Quote
+from .models import Enquiry,GalleryImages,ShopDetails,ShopHistory,ClientReviews,ChooseUs,Staff,Service,Quote,LaptopRepairing,MobileRepairing,ContactUs
 
 
 # Register your models here.
@@ -44,6 +44,17 @@ class ServiceAdmin(admin.ModelAdmin):
 class QuoteAdmin(admin.ModelAdmin):
     list_display = ['quotId','firstname','lastname','email','phoneNO','description']
 
+@admin.register(LaptopRepairing)
+class LaptopRepairingAdmin(admin.ModelAdmin):
+    list_display = ['imageID','images','order','title','description']
+
+@admin.register(MobileRepairing)
+class MobileRepairingAdmin(admin.ModelAdmin):
+    list_display = ['imageID','images','order','title','description']
+
+@admin.register(ContactUs)
+class ContactUsAdmin(admin.ModelAdmin):
+    list_display = ['contactId','fullName','email','subject','phoneNO','message']
 # Register your models here.
 
 
