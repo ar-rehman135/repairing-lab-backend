@@ -127,9 +127,15 @@ class ClientReviews(models.Model):
 	textdetail = models.TextField(blank=True)
 
 class ChooseUs(models.Model):
-	icon = models.ImageField(upload_to='shop/images',default='')
+	icon = models.CharField(default='', max_length=100)
 	title = models.CharField(max_length = 50)
 	textdetail = models.TextField(blank=True)
+
+class Carousal(models.Model):
+	image = models.ImageField(upload_to='shop/images',default='')
+	title = models.CharField(max_length = 50)
+	description = models.TextField(blank=True)
+
 
 class Staff(models.Model):
 	StaffID = models.AutoField(primary_key=True)
@@ -151,7 +157,7 @@ class Quote(models.Model):
 	quotId= models.AutoField(primary_key=True)
 	firstname= models.CharField(max_length = 50)
 	lastname = models.CharField(max_length=50)
-	email = models.CharField(max_length=100, unique=True)
+	email = models.CharField(max_length=100)
 	phoneNO = models.CharField(max_length=50)
 	description = models.TextField(blank=True)
 
@@ -164,28 +170,3 @@ class ContactUs(models.Model):
 	phoneNO = models.CharField(max_length=50)
 	message = models.TextField(blank=True)
 
-# class HardwareImages(models.Model):
-# 	post = models.ForeignKey(Hardware, default=None, on_delete=models.CASCADE)
-# 	images = models.FileField(upload_to='images/')
-#
-# 	def __str__(self):
-# 		return self.post.title
-
-
-
-
-
-# class RepairDetail(models.Model):
-# 	Enquiry = models.ForeignKey(Enquiry, on_delete=models.CASCADE)
-# 	componentsUsed = models.TextField(blank=True)
-# 	repairCharge = models.IntegerField(blank=True)
-# 	otherCharge = models.IntegerField(blank=True)
-# 	totalPrice = models.IntegerField(blank=True)
-#
-# 	def __str__(self):
-# 		return str(self.Enquiry.receiptID) + " : " + str(self.Enquiry.status) + " : " + self.Enquiry.customerName + " : " + str(self.totalPrice)
-#
-# class trialPeriod(models.Model):
-# 	ID = models.AutoField(primary_key=True)
-# 	counter = models.IntegerField()
-# 	date = models.DateField()

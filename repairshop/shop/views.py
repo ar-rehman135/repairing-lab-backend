@@ -5,8 +5,8 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import ShopDetails,ChooseUs,Service,ShopHistory,GalleryImages,Quote,LaptopRepairing,MobileRepairing,ContactUs
-from .serilizer import ShopDetailsSerializer,QuoteSerializer,ChooseUsSerializer,ServiceSerializer,ShopHistorySerializer,GalleryImagesSerializer,LaptopRepairingSerializer,MobileRepairingSerializer,ContactUsSerializer
+from .models import ShopDetails,ChooseUs,Service,ShopHistory,GalleryImages,Quote,LaptopRepairing,MobileRepairing,ContactUs,Carousal
+from .serilizer import ShopDetailsSerializer,QuoteSerializer,ChooseUsSerializer,ServiceSerializer,ShopHistorySerializer,GalleryImagesSerializer,LaptopRepairingSerializer,MobileRepairingSerializer,ContactUsSerializer,CarousalSerializer
 from rest_framework.status import HTTP_400_BAD_REQUEST
 from django.db.models import Q
 
@@ -16,7 +16,7 @@ def home(request):
     if request.method == 'GET':
         list = []
         dict={}
-        shopdetailobj = ShopDetails.objects.all().filter(status=True).first()
+        shopdetailobj = ShopDetails.objects.all().filter(status=True).last()
         serializer = ShopDetailsSerializer(shopdetailobj)
         dict['shop_detail'] = serializer.data
         # list.append(dict)
@@ -39,6 +39,13 @@ def home(request):
         shophisobj = ShopHistory.objects.all().last()
         ser = ShopHistorySerializer(shophisobj)
         dict['shophistory'] = ser.data
+
+        Carousalobj = Carousal.objects.order_by('id')
+        li = []
+        for obj in Carousalobj:
+            serializer = CarousalSerializer(obj)
+            li.append(serializer.data)
+            dict['Carousal'] = li
         return Response(dict)
 
     if (request.method == 'POST'):
@@ -64,6 +71,20 @@ def chooseUs(request):
         print(ChooseUsobj)
         for obj in ChooseUsobj:
             serializer = ChooseUsSerializer(obj)
+            list.append(serializer.data)
+
+        return Response(list)
+
+
+
+@api_view(['GET'])
+def carousal(request):
+    if request.method == 'GET':
+        Carousalobj = Carousal.objects.order_by('id')
+        list = []
+        print(Carousalobj)
+        for obj in Carousalobj:
+            serializer = CarousalSerializer(obj)
             list.append(serializer.data)
 
         return Response(list)

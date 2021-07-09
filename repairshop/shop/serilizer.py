@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import ShopDetails,Quote,ChooseUs,Service,ShopHistory,GalleryImages,LaptopRepairing,MobileRepairing,ContactUs
+from .models import ShopDetails,Quote,ChooseUs,Service,ShopHistory,GalleryImages,LaptopRepairing,MobileRepairing,ContactUs,Carousal
 
 class ShopDetailsSerializer(serializers.ModelSerializer):
 
@@ -46,6 +46,11 @@ class MobileRepairingSerializer(serializers.ModelSerializer):
 class ContactUsSerializer(serializers.ModelSerializer):
     class Meta:
         model = ContactUs
+        fields = "__all__"
+
+class CarousalSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Carousal
         fields = "__all__"
     # def validate(self, data):  # data come from python dictionary
     #     text = data.get("text")  # get the get field attribute in dict

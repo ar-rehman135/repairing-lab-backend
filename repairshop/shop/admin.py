@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Enquiry,GalleryImages,ShopDetails,ShopHistory,ClientReviews,ChooseUs,Staff,Service,Quote,LaptopRepairing,MobileRepairing,ContactUs
+from .models import Enquiry,GalleryImages,ShopDetails,ShopHistory,ClientReviews,ChooseUs,Staff,Service,Quote,LaptopRepairing,MobileRepairing,ContactUs,Carousal
 
 
 # Register your models here.
@@ -30,6 +30,9 @@ class ClientReviewsAdmin(admin.ModelAdmin):
 class ChooseUsAdmin(admin.ModelAdmin):
     list_display = ['id','icon','title','textdetail']
 
+@admin.register(Carousal)
+class ChooseUsAdmin(admin.ModelAdmin):
+    list_display = ['id','image','title','description']
 
 @admin.register(Staff)
 class StaffAdmin(admin.ModelAdmin):

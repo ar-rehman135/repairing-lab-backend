@@ -19,7 +19,8 @@ urlpatterns = [
     path('galleryImages/', views.galleryImages),
     path('laptopRepairing/', views.laptopRepairing),
     path('mobileRepairing/', views.mobileRepairing),
-    path('contactUs/', views.contactUs)
+    path('contactUs/', views.contactUs),
+    path('carousal/', views.carousal)
     #path('', include(router.urls)),
     #path('', include(router.urls)),
 ] + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
