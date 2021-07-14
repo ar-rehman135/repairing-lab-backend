@@ -77,12 +77,28 @@ WSGI_APPLICATION = 'repairshop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+#
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'lab_database',
+        'USER': 'rep-lab',
+        'PASSWORD': 'passwordrep',
+        'HOST': '92.205.17.131',
+        'PORT': '3306',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'rep_lab',
+#         'USER': 'admin',
+#         'PASSWORD': 'admin123',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
 
 
 # Password validation
