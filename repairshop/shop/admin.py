@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Enquiry,GalleryImages,ShopDetails,ShopHistory,ClientReviews,ChooseUs,Staff,Service,Quote,LaptopRepairing,MobileRepairing,ContactUs,Carousal
+from .models import Enquiry,GalleryImages,ShopDetails,ShopHistory,ClientReviews,ChooseUs,Staff,Service,Quote,Repairing,ContactUs,Carousal,Accessories
 
 
 # Register your models here.
@@ -34,6 +34,10 @@ class ChooseUsAdmin(admin.ModelAdmin):
 class ChooseUsAdmin(admin.ModelAdmin):
     list_display = ['id','image','title','description']
 
+@admin.register(Accessories)
+class AccessoriesUsAdmin(admin.ModelAdmin):
+    list_display = ['id','image','title','description']
+
 @admin.register(Staff)
 class StaffAdmin(admin.ModelAdmin):
     list_display = ['StaffID','staffimage','StaffName','Staffdesignation','staffdetail']
@@ -47,13 +51,11 @@ class ServiceAdmin(admin.ModelAdmin):
 class QuoteAdmin(admin.ModelAdmin):
     list_display = ['quotId','firstname','lastname','email','phoneNO','description']
 
-@admin.register(LaptopRepairing)
-class LaptopRepairingAdmin(admin.ModelAdmin):
+@admin.register(Repairing)
+class RepairingAdmin(admin.ModelAdmin):
     list_display = ['imageID','images','order','title','description']
 
-@admin.register(MobileRepairing)
-class MobileRepairingAdmin(admin.ModelAdmin):
-    list_display = ['imageID','images','order','title','description']
+
 
 @admin.register(ContactUs)
 class ContactUsAdmin(admin.ModelAdmin):

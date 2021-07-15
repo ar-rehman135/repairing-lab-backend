@@ -5,8 +5,8 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import ShopDetails,ChooseUs,Service,ShopHistory,GalleryImages,Quote,LaptopRepairing,MobileRepairing,ContactUs,Carousal
-from .serilizer import ShopDetailsSerializer,QuoteSerializer,ChooseUsSerializer,ServiceSerializer,ShopHistorySerializer,GalleryImagesSerializer,LaptopRepairingSerializer,MobileRepairingSerializer,ContactUsSerializer,CarousalSerializer
+from .models import ShopDetails,ChooseUs,Service,ShopHistory,GalleryImages,Quote,Repairing,ContactUs,Carousal,Accessories
+from .serilizer import ShopDetailsSerializer,QuoteSerializer,ChooseUsSerializer,ServiceSerializer,ShopHistorySerializer,GalleryImagesSerializer,RepairingSerializer,ContactUsSerializer,CarousalSerializer,AccessoriesSerializer
 from rest_framework.status import HTTP_400_BAD_REQUEST
 from django.db.models import Q
 
@@ -78,13 +78,14 @@ def chooseUs(request):
 
 
 @api_view(['GET'])
-def carousal(request):
+def getAccessories(request):
     if request.method == 'GET':
-        Carousalobj = Carousal.objects.order_by('id')
+        print('hy')
+        Accobj = Accessories.objects.all()
         list = []
-        print(Carousalobj)
-        for obj in Carousalobj:
-            serializer = CarousalSerializer(obj)
+        print(Accobj)
+        for obj in Accobj:
+            serializer = AccessoriesSerializer(obj)
             list.append(serializer.data)
 
         return Response(list)
@@ -114,26 +115,16 @@ def galleryImages(request):
 
 
 @api_view(['GET'])
-def laptopRepairing(request):
+def getRepairing(request):
     print('images')
     galleryimg = []
     if request.method == 'GET':
-        imgobj = LaptopRepairing.objects.all()
+        imgobj = Repairing.objects.all()
         for obj in imgobj:
-            seri = LaptopRepairingSerializer(obj)
+            seri = RepairingSerializer(obj)
             galleryimg.append(seri.data)
         return Response(galleryimg)
 
-@api_view(['GET'])
-def mobileRepairing(request):
-    print('images')
-    galleryimg = []
-    if request.method == 'GET':
-        imgobj = MobileRepairing.objects.all()
-        for obj in imgobj:
-            seri = MobileRepairingSerializer(obj)
-            galleryimg.append(seri.data)
-        return Response(galleryimg)
 
 
 @api_view(['POST'])

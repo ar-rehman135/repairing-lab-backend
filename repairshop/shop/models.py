@@ -92,19 +92,14 @@ class GalleryImages(models.Model):
 	def __str__(self):
 		return self.title
 
-class LaptopRepairing(models.Model):
+class Repairing(models.Model):
 	imageID = models.AutoField(primary_key=True)
 	images = models.ImageField(upload_to='shop/images', default='')
 	order = models.CharField(max_length=100)
 	title = models.CharField(max_length=250)
 	description = models.TextField()
 
-class MobileRepairing(models.Model):
-	imageID = models.AutoField(primary_key=True)
-	images = models.ImageField(upload_to='shop/images', default='')
-	order = models.CharField(max_length=100)
-	title = models.CharField(max_length=250)
-	description = models.TextField()
+
 
 	def __str__(self):
 		return self.title
@@ -132,6 +127,11 @@ class ChooseUs(models.Model):
 	textdetail = models.TextField(blank=True)
 
 class Carousal(models.Model):
+	image = models.ImageField(upload_to='shop/images',default='')
+	title = models.CharField(max_length = 50)
+	description = models.TextField(blank=True)
+
+class Accessories(models.Model):
 	image = models.ImageField(upload_to='shop/images',default='')
 	title = models.CharField(max_length = 50)
 	description = models.TextField(blank=True)
