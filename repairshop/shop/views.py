@@ -1,14 +1,11 @@
-from django.shortcuts import render
-
 # Create your views here.
-from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import ShopDetails,ChooseUs,Service,ShopHistory,GalleryImages,Quote,Repairing,ContactUs,Carousal,Accessories
 from .serilizer import ShopDetailsSerializer,QuoteSerializer,ChooseUsSerializer,ServiceSerializer,ShopHistorySerializer,GalleryImagesSerializer,RepairingSerializer,ContactUsSerializer,CarousalSerializer,AccessoriesSerializer
 from rest_framework.status import HTTP_400_BAD_REQUEST
-from django.db.models import Q
+
 
 @csrf_exempt
 @api_view(['GET', 'POST'])

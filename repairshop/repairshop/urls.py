@@ -1,12 +1,11 @@
+from django.conf.urls.static import static
 from django.contrib import  admin
-from django.urls import path, include
+from django.urls import path
 #import textdata.textdata1.views as views
 # import repairshop.shop.views as views
 from django.conf import settings
-from django.conf.urls.static import static
 from shop import views
 
-from rest_framework.routers import DefaultRouter
 """router = DefaultRouter()
 router.register('text/',views.text_view,basename='text')"""
 
