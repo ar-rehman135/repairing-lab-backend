@@ -82,8 +82,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'lab_database',
-        'USER': 'rep-lab',
-        'PASSWORD': 'passwordrep',
+        'USER': 'rep-db',
+        'PASSWORD': 'rep1234',
         'HOST': '92.205.17.131',
         'PORT': '3306',
     }
