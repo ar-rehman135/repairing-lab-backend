@@ -11,14 +11,14 @@ router.register('text/',views.text_view,basename='text')"""
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('home/', views.home),
-    path('chooseUs/',views.chooseUs),
-    path('ourServices/',views.ourServices),
-    path('galleryImages/', views.galleryImages),
-    path('Repairing/', views.getRepairing),
-    path('contactUs/', views.contactUs),
-    path('Accessories/', views.getAccessories)
+    path('api/admin/', admin.site.urls),
+    path('api/home/', views.home),
+    path('api/chooseUs/',views.chooseUs),
+    path('api/ourServices/',views.ourServices),
+    path('api/galleryImages/', views.galleryImages),
+    path('api/Repairing/', views.getRepairing),
+    path('api/contactUs/', views.contactUs),
+    path('api/Accessories/', views.getAccessories)
     #path('', include(router.urls)),
     #path('', include(router.urls)),
 ] + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
